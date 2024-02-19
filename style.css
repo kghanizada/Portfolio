@@ -4,4 +4,64 @@ body {
      */
     font: 100%/1.5 system-ui;
     color:black;
-   }
+    max-width: 100ch;
+    margin-inline: 5% 10%;
+    writing-mode: horizontal-tb;
+    padding: 1em;
+    
+}
+
+nav.crumbs {
+  padding: 0;
+  display: flex; 
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: oklch(80% 3% 200);
+
+}
+
+nav.crumbs ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: contents;
+}
+
+nav.crumbs li {
+  display: inline;
+}
+
+nav.crumbs li a {
+  display: inline-block;
+  flex: 1; 
+  color: inherit;
+  text-align: center;
+  padding: 0.5em;
+  text-decoration: none;
+  
+}
+
+nav.crumbs li a:hover {
+  border-bottom-width: 0.4em;
+  border-bottom-style: solid;
+  border-bottom-color: var(--color-accent);
+  background-color: var(--light-accent);
+  padding-bottom: 0.2em;
+
+}
+
+nav.crumbs li a.current {
+  border-bottom-width: 0.4em;
+  border-bottom-style: solid;
+  padding-bottom: 0.2em;
+  border-bottom-color: oklch(80% 3% 200);
+  width: 150%;
+
+}
+
+:root {
+  --color-accent: #FFA500; 
+  --light-accent: hsl(39, 100%, 80%);
+}
