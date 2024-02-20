@@ -10,15 +10,10 @@ body {
     padding: 1em;
     
 }
-
-/*pictures*/
-
 .fit-picture {
   width: 300px; 
   height: auto; 
 }
-
-/*navgiation bar*/
 
 nav.crumbs {
   padding: 0;
@@ -74,12 +69,8 @@ nav.crumbs li a.current {
   --color-accent: #FFA500; 
   --light-accent: hsl(39, 100%, 80%);
 }
-
-
-/*Contact*/
-
 /*Step 3.3: Grid layout*/
-.form {
+form {
   display: grid;
   grid-template-columns: auto 1fr; 
   gap: 1em; 
@@ -89,47 +80,16 @@ label {
   display: grid;
   grid-template-columns: subgrid; 
   grid-column: 1 / -1; 
-  gap: 1em;
 }
 
-/*.form label {
-  display: block;
-  margin-bottom: 0.5em;
-}*/
-
-.form input[type="text"],
-.form input[type="email"],
-.form textarea {
-  width: 100%;
-  padding: 0.5em;
-  margin-bottom: 1em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.form input[type="submit"] {
-  grid-column: 1 / span 2; 
-  padding: 0.5em 1em;
-  background-color: #FFA500; 
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.form input[type="submit"]:hover {
-  background-color: #FF8500;
-}
-
-
-
-/*Projects*/ 
+/*Applying a responsive grid*/ 
 
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
 }
+
+/*Horizontal alignment with subgrid*/ 
 
 projects article {
   display: grid;
@@ -145,14 +105,16 @@ projects article {
 }
 
 
+/* Make h1 significantly larger */
 .projects h1 {
   font-size: 400%; 
 }
 
 .projects h2 {
-  font-size: 200%; 
+  font-size: 200%; /* Adjust font size as needed */
 }
 
+/* Apply default styles to all headings */
 .projects h1,
 .projects h2,
 .projects h3,
@@ -161,53 +123,4 @@ projects article {
 .projects h6 {
   line-height: 1.1; 
   text-wrap: balance;
-}
-
-
-/*resume*/
-
-.resume-page {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-}
-
-.resume-page h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  Color:var(--color-accent);
-}
-
-.resume-page h2 {
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.job .date label {
-  font-style: italic;
-  margin-left: auto;
-}
-
-/*.job {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 10px;
-}*/
-
-.job .bullet-points {
-  display: grid;
-  grid-template-columns: auto;
-  gap: 10px;
-  padding: 1em;
-  align-items: center; /* Adjust the alignment as needed */
-}
-
-.job .bullet-points p {
-  margin: 0;
-}
-
-.job .bullet-points > p::before {
-  content: "\2022";
-  color: var(--color-accent);
 }
