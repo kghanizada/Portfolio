@@ -8,6 +8,7 @@ body {
     margin-inline: 5% 10%;
     writing-mode: horizontal-tb;
     padding: 1em;
+    color-scheme: light dark;
     
 }
 
@@ -20,7 +21,7 @@ body {
 
 /*navgiation bar*/
 
-nav.crumbs {
+nav  {
   padding: 0;
   display: flex; 
   justify-content: space-between;
@@ -31,44 +32,45 @@ nav.crumbs {
 
 }
 
-nav.crumbs ol {
+nav ol {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: contents;
 }
 
-nav.crumbs li {
+nav li {
   display: inline;
 }
 
-nav.crumbs li a {
+nav li a {
   display: inline-block;
   flex: 1; 
   color: inherit;
   text-align: center;
   padding: 0.5em;
-  text-decoration: none;
-  
+  text-decoration: none; /* Remove default underline */
 }
 
-nav.crumbs li a:hover {
+nav li a:hover {
   border-bottom-width: 0.4em;
   border-bottom-style: solid;
   border-bottom-color: var(--color-accent);
   background-color: var(--light-accent);
   padding-bottom: 0.2em;
-
+  color: inherit; /* Ensure the color of the link is inherited */
 }
 
-nav.crumbs li a.current {
+
+nav li a.current {
   border-bottom-width: 0.4em;
   border-bottom-style: solid;
   padding-bottom: 0.2em;
   border-bottom-color: oklch(80% 3% 200);
   width: 150%;
-
+  color: inherit; /* Ensure the color of the current link is inherited */
 }
+
 
 :root {
   --color-accent: #FFA500; 
@@ -210,4 +212,13 @@ projects article {
 .job .bullet-points > p::before {
   content: "\2022";
   color: var(--color-accent);
+}
+
+
+/*dark mode*/
+
+html {
+  color-scheme: light dark; 
+  background-color: canvas; 
+  color: canvastext;
 }
