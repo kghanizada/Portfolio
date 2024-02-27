@@ -4,6 +4,7 @@ function $$ (selector, context = document) {
 	return Array.from(context.querySelectorAll(selector));
 }
 
+
 let pages = [
 	{url: "index.html", title: "Home"},
 	{url: "projects/index.html", title: "Projects"},
@@ -18,6 +19,7 @@ const ARE_WE_HOME = document.documentElement.classList.contains("home");
 let nav = document.createElement("nav");
 
 document.body.prepend(nav);
+
 
 for (let p of pages) {
 	let url = p.url;
@@ -35,16 +37,50 @@ for (let p of pages) {
 	if (a.host === location.host && a.pathname === location.pathname) {
 		a.classList.add("current");
 	}
-	
+    nav.append(a);
 
-
-	nav.append(a);
 }
 
+document.body.insertAdjacentHTML("afterbegin", `
+   <label class="color-scheme">
+      Theme:
+      <select id="colorSchemeSelector">
+         <option value="auto">Automatic</option>
+         <option value="light">Light</option>
+         <option value="dark">Dark</option>
+      </select>
+   </label>`
+);
 
+const colorSchemeSelector = document.getElementById("colorSchemeSelector");
 
+colorSchemeSelector.addEventListener("input", function (event) {
+    console.log("color scheme changed to", event.target.value);
+    document.documentElement.style.setProperty("color-scheme", event.target.value);
 
+	// Save the user's preference to localStorage
+	  localStorage.setItem("colorScheme", event.target.value);
+	
+});
 
+// Set initial value based on user's preference stored in localStorage
+const storedColorScheme = localStorage.getItem("colorScheme");
+if (storedColorScheme) {
+    colorSchemeSelector.value = storedColorScheme;
+} else {
+    // If no preference is stored, set based on user's system preference
+    const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    colorSchemeSelector.value = prefersDarkMode ? "dark" : "light";
+}
+
+// Trigger input event manually to update color scheme initially
+colorSchemeSelector.dispatchEvent(new Event("input"));
+
+// Add event listener to handle changes
+colorSchemeSelector.addEventListener("change", () => {
+    const selectedValue = colorSchemeSelector.value;
+    document.documentElement.setAttribute("data-color-scheme", selectedValue);
+});
 
 
 
